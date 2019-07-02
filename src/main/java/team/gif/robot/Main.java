@@ -8,6 +8,7 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
+import team.gif.lib.math.MathUtil;
 
 /**
  * Do NOT add any static variables to this class, or any initialization at all.

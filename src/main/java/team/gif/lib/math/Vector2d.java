@@ -38,6 +38,20 @@ public class Vector2d {
         return MathUtil.wrapRad(Math.atan2(y, x));
     }
 
+    public int getQuadrant() {
+        if (x > 0 && y > 0) {
+            return 1;
+        } else if (x < 0 && y > 0) {
+            return 2;
+        } else if (x < 0 && y < 0) {
+            return 3;
+        } else if (x > 0 && y < 0) {
+            return 4;
+        } else {
+            return 0;
+        }
+    }
+
     /**
      * @param vec vector to add
      * @return sum of vectors
@@ -62,11 +76,11 @@ public class Vector2d {
     }
 
     /**
-     * @param target desired length
-     * @return vector of target length in same direction
+     * @param length desired length
+     * @return vector of length in same direction
      */
-    public Vector2d normalize(double target) {
-        return scale(target / getMagnitude());
+    public Vector2d normalize(double length) {
+        return scale(length / getMagnitude());
     }
 
     /**
