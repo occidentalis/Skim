@@ -31,7 +31,7 @@ public class SwerveMath {
      * @param modulePos position vector of module relative to center of rotation
      * @return Vector representing wheel angle and speed
      */
-    public static Vector2d calculateDriveVector(double robotHeading, double rotVal, Vector2d transVecF, Vector2d modulePos) {
+    public static Vector2d calculateDriveVector(double robotHeading, Vector2d transVecF, double rotVal, Vector2d modulePos) {
         Vector2d transVecR = transVecF.rotate(robotHeading);
         Vector2d rotVec = modulePos.normalize(rotVal).rotate(Math.PI/2);
         Vector2d driveVec = transVecR.add(rotVec);
@@ -41,10 +41,10 @@ public class SwerveMath {
     /**
      * Calculates multiple drive vectors
      */
-    public static Vector2d[] calculateDriveVector(double robotHeading, double rotVal, Vector2d transVecF, Vector2d... modulePos) {
+    public static Vector2d[] calculateDriveVector(double robotHeading, Vector2d transVecF, double rotVal, Vector2d... modulePos) {
         Vector2d[] driveVecs = new Vector2d[modulePos.length];
         for (int i = 0; i < modulePos.length; i++) {
-            driveVecs[i] = calculateDriveVector(robotHeading, rotVal, transVecF, modulePos[i]);
+            driveVecs[i] = calculateDriveVector(robotHeading, transVecF, rotVal, modulePos[i]);
         }
         return normalizeVectorBatch(1.0, driveVecs);
     }

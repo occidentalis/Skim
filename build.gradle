@@ -12,7 +12,7 @@ deploy {
     targets {
         roboRIO("roborio") {
             // Team number is loaded either from the .wpilib/wpilib_preferences.json
-            // or from command line. If not found an exception will be thrown.
+            // or from commands line. If not found an exception will be thrown.
             // You can use getTeamOrDefault(team) instead of getTeamNumber if you
             // want to store a team number in this file.
 //            team = frc.getTeamNumber()
@@ -22,7 +22,7 @@ deploy {
     artifacts {
         frcJavaArtifact('frcJava') {
             targets << "roborio"
-            // Debug can be overridden by command line, for use with VSCode
+            // Debug can be overridden by commands line, for use with VSCode
             debug = frc.getDebugOrDefault(false)
         }
         // Built in artifact to deploy arbitrary files to the roboRIO.

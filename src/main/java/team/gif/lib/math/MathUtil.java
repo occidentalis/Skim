@@ -7,10 +7,10 @@ public class MathUtil {
      * Reversing the output bounds will also reverse the output.
      *
      * @param value value to be mapped
-     * @param minIn minimum input bound
-     * @param maxIn maximum input bound
-     * @param minOut minimum output bound
-     * @param maxOut maximum output bound
+     * @param minIn minimum input
+     * @param maxIn maximum input
+     * @param minOut minimum output
+     * @param maxOut maximum output
      * @return re-mapped value
      */
     public static double map(double value, double minIn, double maxIn, double minOut, double maxOut) {
@@ -23,7 +23,7 @@ public class MathUtil {
      * @param value value to clamp
      * @param min minimum value
      * @param max maximum value
-     * @return clamped value between {@code min} and {@code max}
+     * @return clamped value
      */
     public static double clamp(double value, double min, double max) {
         if (value > max) {
@@ -41,21 +41,22 @@ public class MathUtil {
      * @param value value to wrap
      * @param min minimum value
      * @param max maximum value
-     * @return wrapped value between {@code min} and {@code max}
+     * @return wrapped value
      */
     public static double wrap(double value, double min, double max) {
         double range = max - min;
-        while (value >= max) {
-            value -= range;
+        value %= range;
+        if (value >= max) {
+            return value - range;
+        } else if (value < min) {
+            return value + range;
+        } else {
+            return value;
         }
-        while (value < min) {
-            value += range;
-        }
-        return value;
     }
 
     public static double wrapRad(double angle) {
-        return wrap(angle, 0, 2 * Math.PI);
+        return wrap(angle, 0, 2*Math.PI);
     }
 
     public static double wrapHalfRad(double angle) {
@@ -68,27 +69,6 @@ public class MathUtil {
 
     public static double wrapHalfDeg(double angle) {
         return wrap(angle, -180, 180);
-    }
-
-    /**
-     * Finds smallest error for continuous rotary inputs.
-     *
-     * @param error current error of the controller
-     * @param minIn minimum input value
-     * @param maxIn maximum input value
-     * @return
-     */
-    public static double absError(double error, double minIn, double maxIn) {
-        double range = maxIn - minIn;
-        error %= range;
-        if (Math.abs(error) > range / 2) {
-            if (error > 0) {
-                return error - range;
-            } else {
-                return error + range;
-            }
-        }
-        return error;
     }
 
 }

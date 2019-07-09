@@ -12,5 +12,8 @@ public abstract class RobotMap {
     public static final int RR_DRIVE_ID_2 = 8;
 
     public static final int FR_ENCODER_ID = 0;
+    public static final int FL_ENCODER_ID = 1;
+    public static final int RL_ENCODER_ID = 2;
+    public static final int RR_ENCODER_ID = 3;
 
 }
