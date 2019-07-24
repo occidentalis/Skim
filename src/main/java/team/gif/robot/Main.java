@@ -25,24 +25,6 @@ public final class Main {
    * <p>If you change your main robot class, change the parameter type.
    */
   public static void main(String... args) {
-//    RobotBase.startRobot(Robot::new);
-
-    long t, t1, t2;
-
-    MathUtil.wrap(16, -Math.PI, Math.PI);
-
-
-
-    t = System.currentTimeMillis();
-    for (int i = -100000; i <= 100000; i++) {
-      MathUtil.wrap2(i, -Math.PI, Math.PI);
-    }
-    t1 = System.currentTimeMillis() - t;
-
-    System.out.println("T1: " + t1);
-
-
-
-
+    RobotBase.startRobot(Robot::new);
   }
 }
