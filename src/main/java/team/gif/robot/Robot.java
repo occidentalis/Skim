@@ -17,7 +17,9 @@ public class Robot extends TimedRobot {
     @Override
     public void robotPeriodic() {
         Scheduler.getInstance().run();
-//        System.out.println(drive.angel());
+        double[] modAngles = drive.getModuleAngles();
+        System.out.println("Drive Heading" + drive.getHeading());
+        System.out.println("FR Module: " + modAngles[0] + ", RL Module: " + modAngles[1]);
     }
 
     @Override

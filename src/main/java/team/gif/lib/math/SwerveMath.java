@@ -32,7 +32,7 @@ public class SwerveMath {
      * @return Vector representing wheel angle and speed
      */
     public static Vector2d calculateDriveVector(double robotHeading, Vector2d transVecF, double rotVal, Vector2d modulePos) {
-        Vector2d transVecR = transVecF.rotate(robotHeading);
+        Vector2d transVecR = transVecF.rotate(-robotHeading);
         Vector2d rotVec = modulePos.normalize(rotVal).rotate(Math.PI/2);
         Vector2d driveVec = transVecR.add(rotVec);
         return driveVec;

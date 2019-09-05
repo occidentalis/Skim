@@ -77,7 +77,6 @@ public class MathUtil {
         } else {
             return value;
         }
-
     }
 
 }
